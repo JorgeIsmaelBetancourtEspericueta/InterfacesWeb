@@ -1,45 +1,64 @@
 import React from "react";
-import PickMeals from "../Assets/pick-meals-image.png";
-import ChooseMeals from "../Assets/choose-image.png";
-import DeliveryMeals from "../Assets/delivery-image.png";
+import LogoIttepic from "../Assets/logoIttepic.png";
+import estudiante from "../Assets/estudiante.png";
+import puesto from "../Assets/puestoCallejero.png";
+
 
 const Work = () => {
   const workInfoData = [
     {
-      image: PickMeals,
-      title: "Pick Meals",
-      text: "Lorem ipsum dolor sit amet consectetur. Maecenas orci et sagittis duis elementum interdum facilisi bibendum.",
+      image: LogoIttepic,
+      title: "Comida en el ITTepic",
+      text: "Descubre las opciones de comida dentro del campus con establecimientos confiables y accesibles.",
+      link: "https://www.ittepic.edu.mx/",
     },
     {
-      image: ChooseMeals,
-      title: "Choose How Often",
-      text: "Lorem ipsum dolor sit amet consectetur. Maecenas orci et ",
+      image: estudiante,
+      title: "Emprendimientos Estudiantiles",
+      text: "Prueba los platillos y snacks preparados por nuestros estudiantes emprendedores. ¡Apóyalos!",
+      link: "https://example.com/choose-meals",
     },
     {
-      image: DeliveryMeals,
-      title: "Fast Deliveries",
-      text: "Lorem ipsum dolor sit amet consectetur. Maecenas orci et lorem ipsum",
+      image: puesto,
+      title: "Opciones Cercanas",
+      text: "¿Quieres algo diferente? Explora restaurantes y puestos de comida cerca del Tec.",
+      link: "https://example.com/fast-deliveries",
     },
   ];
+
   return (
     <div className="work-section-wrapper">
       <div className="work-section-top">
-        <p className="primary-subheading">Work</p>
-        <h1 className="primary-heading">How It Works</h1>
+        <p className="primary-subheading">Categorías</p>
+        <h1 className="primary-heading">
+          Encuentra lugares por tipo de vendedores
+        </h1>
         <p className="primary-text">
-          Lorem ipsum dolor sit amet consectetur. Non tincidunt magna non et
-          elit. Dolor turpis molestie dui magnis facilisis at fringilla quam.
+          Deja tu opinión y ayuda a la comunidad del Tec a encontrar los mejores
+          lugares.
         </p>
       </div>
       <div className="work-section-bottom">
         {workInfoData.map((data) => (
-          <div className="work-section-info" key={data.title}>
+          <a
+            href={data.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="work-section-info"
+            key={data.title}
+            style={{ textDecoration: "none", color: "inherit" }} // Opcional: para mantener el estilo
+          >
             <div className="info-boxes-img-container">
-              <img src={data.image} alt="" />
+              <img
+                src={data.image}
+                alt={data.title}
+                className="w-[150px] h-[150px] object-cover"
+              />
             </div>
+
             <h2>{data.title}</h2>
             <p>{data.text}</p>
-          </div>
+          </a>
         ))}
       </div>
     </div>
